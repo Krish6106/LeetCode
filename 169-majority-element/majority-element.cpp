@@ -1,9 +1,9 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int n =nums.size();
+        //nums.size();
         int freq = 0, ans = 0;
-        for(int i=0; i<n; i++){
+        for(int i=0; i<nums.size(); i++){
             if(freq==0){
                 ans = nums[i];
             }
@@ -20,7 +20,7 @@ public:
                 count++;
             }        
         }
-        if(count> n/2){
+        if(count> (nums.size()/2)){
             return ans;
         }
         else{
