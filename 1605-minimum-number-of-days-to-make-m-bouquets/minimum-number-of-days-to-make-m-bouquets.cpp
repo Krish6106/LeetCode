@@ -17,7 +17,7 @@ public:
 
         return noOfb >= a;
     }
-    int minDays(vector<int>& bloomDay, int m, int k) {
+    int minDays(vector<int> bloomDay, int m, int k) {
         long long value = m * 1LL * k * 1LL;
         if(value>bloomDay.size()) return -1;
         int maxi = INT_MIN , mini = INT_MAX;
