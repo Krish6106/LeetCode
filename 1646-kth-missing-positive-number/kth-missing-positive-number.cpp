@@ -8,9 +8,9 @@ public:
             int missing = arr[mid] - (mid + 1);
 
             if (missing < k) {
-                low = mid + 1; // move right
+                low = mid + 1;
             } else {
-                high = mid; // move left
+                high = mid; 
             }
         }
 
