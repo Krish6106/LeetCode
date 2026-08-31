@@ -1,28 +1,24 @@
 class Solution {
 public:
-    int count(vector<int>& nums, int mid, int n, int m) {
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            count += (nums[i] + mid - 1) / mid;
+    int sumByD(vector<int> &arr, int div) {
+        int sum=0;
+        int n= arr.size();
+        for(int i=0;i<n;i++) {
+            sum =sum + ceil((double) (arr[i]) / (double) (div));
         }
-        if (count <= m) return 1;
-        return 2;
+        return sum;
     }
-
-    int smallestDivisor(vector<int>& nums, int threshold) {
-        int n = nums.size();
-        int low = 1;
-        int high = INT_MIN;
-        for (int i = 0; i < n; i++) {
-            high = max(high, nums[i]);
-        }
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            int div = count(nums, mid, n, threshold);
-            if (div <= 1) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
+    int smallestDivisor(vector<int> arr, int limit){
+        int n= arr.size();
+        if(n> limit) return -1; 
+        int low =1, high= *max_element(arr.begin(), arr.end());
+        while(low <= high) {
+            int mid = (low+ high) / 2;
+            if(sumByD(arr, mid) <= limit) {
+                high =mid-1;
+            }
+            else {
+                low= mid+ 1;
             }
         }
         return low;
